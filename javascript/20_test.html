@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+        <!--5.在页面上输出如下数字图案。
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+其中，每行的数字之间有一个空格间隔。 -->
+    <script>
+    
+    //  var i,line;
+    //  for(line=1;line<=5;line++)
+    
+    //  {
+    //      document.write(" ");
+    //     for(i=1;i<=5-line;i++)
+    //        document.write(" ");   
+    //     for(i=1;i<=line;i++){
+    //         document.write("*");
+    //     if (i>0) document.write(" ");
+    //     }
+    //      document.write("<br>")
+    //     } 
+    // 7.有一个三位数x，被4除余2，被7除余3，被9除余5，请求出这个数。
+    // var x;
+    // for(x=100;x<=999;x++){
+    //  if(x%4==2 && x%7==3 && x%9==5)
+    //   document.write("x="+x+ "<br>");
+    // }
+    // 8.求所有满足条件的四位数ABCD，它是13的倍数，且第3位数加上第2位数等于第4位数（即：A=B+C）。
+    // （提示：对于四位数的整数x，通过Math.floor(x/1000)可求出第4位的数字，其他位数的提取也类似） 
+    // var x;
+    // x4=Math.floor(x/1000);
+    // x3=Math.floor(x/100);
+    // x2=Math.floor(x/10);
+    // for(x=1000;x<9999;x++){
+    //     if(x%13==0 && x4==x2+x3 )
+    //     document.write("x="+x+ "<br>")
+    // }
+    // 编写一个函数 f(x) = 4x2+3x+2，使用户通过提示对话框瑜入x的值，能得到相应的计算结果
+    // var x = prompt("请输入一个数字",1);
+    //  var fn=function(){
+    //      console.log(4*2+3*x+2)
+    //       return 4*2+3*x+2;
+    // }
+    // fn();
+    // console.log(fn);
+    // 2.编写一个函数Min(x,y)求出x,y这两个数中的最小值，要求x,y的值由用户通过提示对话框输入。
+    var x=prompt("请输入一个数",2), y=prompt("请输入一个数",4);
+    function Min(x,y){
+            console.log("x>y?x:y");
+            return x>y?x:y;
+            
+    }
+    Min();
+    document.write("Min(x,y)")
+    </script>    
+    
+</body>
+</html>
