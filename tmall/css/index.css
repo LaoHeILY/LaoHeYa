@@ -1,0 +1,126 @@
+#header{
+    height: 33px;
+    line-height: 32px;
+    background: #a9180a;
+    border-bottom: 1px solid #a9180a;
+}
+.header-login{
+    height: 32px;
+    line-height: 32px;
+    float: left;
+}
+.header-login span,.header-login a{
+    color: #ffffff;
+    font-size: 12px;
+
+}
+.header-login a{
+    text-decoration: none;
+    padding:0 10px 0 20px;
+}
+.header-list{
+    float:right;
+    
+}
+.header-list> li{
+    float: left;
+    padding: 0px 14px 0px 10px;
+   
+}
+.header-list> li> a{
+    color:#ffffff;
+}
+.list-arrow{
+    position: relative;
+
+}
+.sub-list{
+    position: absolute;
+    left: 0;
+    top: 32px;
+    background: #fff;
+    padding:10px;
+    border:1px solid #ccc;
+    border-top:none;
+    display: none;
+}
+.sub-list-tb{
+    width:200px;
+    line-height: 20px;
+}
+.sub-list > li > a{
+    color:#999;
+}
+ .list-arrow:hover .sub-list{
+    display:block;
+   
+}
+.list-arrow:hover{
+    background: #ffffff;
+}
+.list-arrow:hover >a{
+    color:#ff0036;
+    text-decoration:underline;
+}
+.sub-list .list-tb-baby:hover{
+    color: #ff0036;
+    text-decoration: underline;
+}
+.slide-box .wrapper{
+    height: 500px;
+    /* background: #0000ff; */
+    position: relative;
+}
+.menu-box{
+  
+    top:49px;
+    left:-234px;
+    background: rgba(0,0,0,0.55);
+    width: 200px;
+    height: 535px;
+    position: relative;
+}
+.img-box{
+    height: 500px;
+    overflow: hidden;
+    position:relative;
+    top:50px;
+
+}
+.img-box img{
+    width: 1230px;
+}
+.menu-title{
+    color:#fff;
+    height: 35px;
+    line-height: 35px;
+    background: #ff0036;
+    font-size:16px;
+    font-weight: 700;
+}
+.menu-title .icon-caidan{
+    margin:0 8px 0 14px;
+    font-size:18px;
+ 
+}
+.slide-box{
+    border-top:2px solid #ff0036;
+   
+}
+.main-list > a{
+    color:#ffffff;
+}
+.list-line{
+    color:red;
+
+}
+.main-list:hover{
+    color:green;
+}
+.main-list .list-icon :hover{
+    color:blue;
+}
+.main-list >.a{
+    padding-left: 10px;
+}
+
