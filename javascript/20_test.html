@@ -19,14 +19,12 @@
     
     //  var i,line;
     //  for(line=1;line<=5;line++)
-    
     //  {
-    //      document.write(" ");
+         
     //     for(i=1;i<=5-line;i++)
-    //        document.write(" ");   
+    //        document.write("&nbsp");   
     //     for(i=1;i<=line;i++){
-    //         document.write("*");
-    //     if (i>0) document.write(" ");
+    //         document.write("*&nbsp");
     //     }
     //      document.write("<br>")
     //     } 
@@ -38,13 +36,16 @@
     // }
     // 8.求所有满足条件的四位数ABCD，它是13的倍数，且第3位数加上第2位数等于第4位数（即：A=B+C）。
     // （提示：对于四位数的整数x，通过Math.floor(x/1000)可求出第4位的数字，其他位数的提取也类似） 
-    // var x;
-    // x4=Math.floor(x/1000);
-    // x3=Math.floor(x/100);
-    // x2=Math.floor(x/10);
+    
+    
     // for(x=1000;x<9999;x++){
-    //     if(x%13==0 && x4==x2+x3 )
-    //     document.write("x="+x+ "<br>")
+    //     var A=Math.floor(x/1000);
+    //     var B=Math.floor(x/100)%10;
+    //     var C=Math.floor(x/10)%10;
+    //     if(x%13==0 && A==B+C ){ 
+    //         document.write(x+"<br>")
+    //     }
+       
     // }
     // 编写一个函数 f(x) = 4x2+3x+2，使用户通过提示对话框瑜入x的值，能得到相应的计算结果
     // var x = prompt("请输入一个数字",1);
@@ -55,14 +56,32 @@
     // fn();
     // console.log(fn);
     // 2.编写一个函数Min(x,y)求出x,y这两个数中的最小值，要求x,y的值由用户通过提示对话框输入。
-    var x=prompt("请输入一个数",2), y=prompt("请输入一个数",4);
-    function Min(x,y){
-            console.log("x>y?x:y");
-            return x>y?x:y;
-            
-    }
-    Min();
-    document.write("Min(x,y)")
+    // var x=prompt("请输入一个数",2), y=prompt("请输入一个数",4);
+    // x*=1;
+    // y*=1;
+    // function Min(x,y){
+    //         console.log("x<y?x:y");
+    //         return  x<y?x:y;       
+    // }
+    // document.write(Min(x,y))
+    // 3.编写一个判断某个非负整数是否能够同时被3,5,7整除的函数，然后在页面上输出1~1000之间所有能同时被3,5,7整除的整数，并要求每行显示6个这样的数。
+    function fn(){
+        var count=0
+        for(var x=1;x<=1000;x++){
+        if(x%3==0&&x%5==0&&x%7==0)
+        {  
+             count++;
+            if(count%6==0){
+             document.write("x"=+x); 
+            }     
+   }
+ }
+    
+
+        
+          
+
+    
     </script>    
     
 </body>
