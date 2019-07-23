@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+     #all{
+         width: 750px;
+         margin:100px auto;
+     }
+     ul{
+         list-style:none;
+         position: absolute;
+         bottom:10px;    
+     }
+     #container{
+         position:relative;
+     }
+     #container li{
+         width: 20px;
+         height: 20px;
+         float: left;
+         margin-right:10px;
+         text-align: center;
+         font-size:12px;
+         line-height: 18px;
+         background:rgba(0,0,0,0.7);
+         color:#fff;
+         border-radius:5px;
+         cursor: pointer;
+        
+     }
+     #content img{
+            display: none;
+            color:#666;
+        }
+    #content .selected{
+            display: block;
+        }
+     #btns  {
+       right:10px;
+       bottom:10px;}
+       #btnstwo{
+           left:10px;
+           bottom:10px;
+       }
+#btns  .active{
+    background: #ff0036;
+}
+#content .selected{
+    display: black;
+}
+.content img{
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+<div id="all"> 
+    <div id="content">
+            <img class="selected" src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+    </div>
+
+    <div id="container">
+        <ul id="btnstwo">
+           <li><</li>
+           <li>></li>
+        </ul>
+        <ul id="btns">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+       
+ </div>
+    <script>
+    // var aLi1=document.getElementById("btnstwo");
+    var aLi2=document.getElementById("btns");
+    var aBtns = aLi2.getElementsByTagName("li")
+    var oContent=document.getElementById("content");
+    var aImg =oContent.getElementsByTagName("img");
+
+    for(var i=0;i<aBtns.length;i++){
+        aBtns[i].index = i;
+        aBtns[i].onclick=function(){
+        
+        for(var j=0;j<aBtns.length;j++){
+           aBtns[j].className=" ";
+           aImg[j].className="";
+        }
+        this.className="active";
+        aImg[this.index].className = "selected";
+        }
+    }
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
