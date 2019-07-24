@@ -78,6 +78,7 @@ ul{
          </ul>
         </div>
          <script>
+         var oContainer=document.getElementById("container");
          var oImgBox=document.getElementById("img-box");
          var oImg=oImgBox.getElementsByTagName("a");
          var oBtnBox=document.getElementById("btn-box");
@@ -88,43 +89,40 @@ ul{
          for(var i=0;i<oBtn.length;i++){
              oBtn[i].index=i;
              oBtn[i].onclick=function(){
-                 for(var j=0;j<oBtn.length;j++){
-                     oBtn[j].id="";
-                     oImg[j].className ="";
+                 change(this.index);
+                 iNow=this.index;
                  }
-             this.id="active";
-            oImg[this.index].className="selected";
-         }
          }
          oNext.onclick=function(){
            iNow++;
            if(iNow==oBtn.length){
            iNow=0;
          }
-         for(var i=0;i<oBtn.length;i++){
-             oBtn[i].id="";
-             oImg[i].className="";
+         change(iNow);
          }
-         oBtn[iNow].id="active";
-         oImg[iNow].className="selected";
-         }
-         
          oLast.onclick=function(){
              iNow--;
             if(iNow==-1){
-                iNow=oBtn.length-"1";
+                iNow=oBtn.length-1;
             }
-            for(var i=0;i<oBtn.length;i++){
-                oBtn[i].id="";
-                oImg[i].className="";
-            }
-            oBtn[iNow].id="active";
-         oImg[iNow].className="selected";
+           change(iNow);
+           }
+         function change(idx){
+             for(var i=0;i<oBtn.length;i++){
+                oBtn[i].id = "";
+                oImg[i].className = "";
+             } 
+             oBtn[idx].id = "active";
+            oImg[idx].className = "selected";
+
          }
-         change
-         
-         
-         
+         var timer = setInterval(oNext.onclick,1000);
+         oContainer.onmouseout=function(){
+            timer = setInterval(oNext.onclick,1000);
+         }
+         oContainer.onmouseover=function(){
+          clearInterval(timer);
+         }
          
          
          </script>
