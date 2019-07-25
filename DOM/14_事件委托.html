@@ -19,7 +19,7 @@
     var oUl1 = document.getElementById("ul1");
     var aLi = oUl1.getElementsByTagName("li")
     oBtn.onclick = function(){
-      var oLi = document.createElement("li");
+      var oLi = document.createElement("li");//创建一个li
       oLi.innerHTML = Math.random();
       oUl1.appendChild(oLi)//ul内部的后边插入新的元素
     }

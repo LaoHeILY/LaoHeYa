@@ -294,21 +294,26 @@
     color:red;
 }
 .brand-list{
-    width: 485px;
+    width: 300px;
     float: left;
+    margin-left :13px;
     
 }
 .brand-list img{
      width: 485px;
      height: 316px;
+     
 }
 .brand-list-1{
     width: 234px;
     height: 316px;
+    margin-left: 0px;
 }
 .brand-list-1 img{
     width: 234px;
     height: 316px;
 }
-
+/* .brand-box {
+    overflow: hidden;
+} */
 
