@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <ul id="ul1">
+        <li >111</li>
+        <li>222</li>    
+        <li>333</li>    
+        <li>444</li>       
+    </ul>
+    <script>
+    var oBtn = document.getElementById("btn");
+    var oUl1 = document.getElementById("ul1");
+    var aLi = oUl1.getElementsByTagName("li")
+    oBtn.onclick = function(){
+      var oLi = document.createElement("li");
+      oLi.innerHTML = Math.random();
+      oUl1.appendChild(oLi)//ul内部的后边插入新的元素
+    }
+
+    // for(var i = 0; i<aLi.length;i++){
+    //     aLi[i].onclick = function(){
+    //         console.log(this.innerHTML)
+    //     }
+    // }
+    oUl1.onclick = function(e){
+       e=e||window.event;
+       console.log(e.target);
+       //事件源的标签名是li
+       if(e.target.tagName=="LI"){
+          console.log(e.target.innerHTML)
+       }
+    }
+    
+    
+    </script>
+</body>
+</html>

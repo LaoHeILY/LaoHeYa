@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style:none;
+}
+#container{
+    width: 750px;
+    height: 291px;
+    margin:100px auto;
+    position: relative;
+    overflow: hidden;
+}
+#img-box{
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 3750px;
+    overflow: hidden;
+    transition:left 1s linear; 
+}
+#img-box a{
+    display:block;
+    float: left;
+    
+}
+
+#arrow-box {
+    position: absolute;
+    left:10px;
+    bottom:10px;  
+}
+#btn-box {
+    position: absolute;
+    right:10px;
+    bottom:10px;
+}
+#arrow-box li,#btn-box li{
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right:10px;
+    background:rgba(0,0,0,0.5);
+    text-align:center;
+    color:#fff;
+    font-size:12px;
+    cursor: pointer;
+    line-height:20px;
+    border-radius: 5px;
+    
+}
+
+#btn-box #active{
+    background: #ff0036;
+}
+    
+    
+    </style>
+</head>
+<body>
+        <div id="container">
+                <div id="img-box">
+                 <a href="#" class="selected"><img src="../DOM/img/1.jpg" alt=""></a>
+                 <a href="#"><img src="../DOM/img/2.jpg" alt=""></a>
+                 <a href="#"><img src="../DOM/img/3.jpg" alt=""></a>
+                 <a href="#"><img src="../DOM/img/4.jpg" alt=""></a>
+                 <a href="#"><img src="../DOM/img/5.jpg" alt=""></a>
+                 </div>
+                 <div>
+                 <ul id="arrow-box">
+                     <li id="last">&lt;</li>
+                     <li id="next">&gt;</li>
+                 </ul>
+                 <ul id="btn-box">
+                     <li id="active">1</li>
+                     <li>2</li>
+                     <li>3</li>
+                     <li>4</li>
+                     <li>5</li>
+                 </ul>
+                </div>
+         <script>
+         var oContainer=document.getElementById("container");
+         var oImgBox=document.getElementById("img-box");
+         var oImg=oImgBox.getElementsByTagName("a");
+         var oBtnBox=document.getElementById("btn-box");
+         var oBtn=oBtnBox.getElementsByTagName("li");
+         var oNext=document.getElementById("next");
+         var oLast=document.getElementById("last");
+         var iNow = 0;
+         for(var i=0;i<oBtn.length;i++){
+             oBtn[i].index=i;
+             oBtn[i].onclick=function(){
+                 change(this.index);
+                 iNow=this.index;
+         }          
+ }     
+ oNext.onclick=function(){
+     iNow++;
+     if(iNow==oBtn.length){
+     iNow=0;}
+     change(iNow);
+ }     
+ oLast.onclike=function(){
+     iNow--;
+     if(iNow==-1){
+         iNow=oBtn.length-1;
+     }
+     change(iNow);
+ }  
+              function change(idx){
+                for(var j=0;j<oBtn.length;j++){
+                    oBtn[j].id="";
+                    
+                }
+                oBtn[idx].id = "active";
+                oImgBox.style.left = -idx*750+"px";
+              }
+              var timer = setInterval(oNext.onclick,1000);
+         oContainer.onmouseout=function(){
+            timer = setInterval(oNext.onclick,1000);
+         }
+         oContainer.onmouseover=function(){
+          clearInterval(timer);
+         }
+                
+                
+                
+                
+                
+                
+                </script>
+</body>
+</html>
