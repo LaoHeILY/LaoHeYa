@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #div1,#div2{
+       width: 300px;
+       height: 30px;
+       background: black;
+       font-size:20px;
+       color:blanchedalmond;
+     
+    }
+    ul{
+      width: 298px;
+      height: 60px;
+      border:1px solid #000; 
+      display: none;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id = "container">
+       
+     <div id="div1">  管理区 </div>
+      <ul id = "ul1">
+              <li>1111</li>
+              <li>2222222</li>
+              <li>33333333333</li>
+          </ul>
+       
+     <div id="div2">交通区 </div>
+         <ul id = "ul2">
+             <li>111</li>
+             <li>222222</li>
+             <li>333333333</li>
+
+         </ul> 
+        </div>
+     <script>
+     var oDiv1 = document.getElementById("div1");
+     var oUl1 = document.getElementById("ul1");
+     var oDiv2=  document.getElementById("div2");
+     var oUl2 = document.getElementById("ul2");
+
+      
+        oDiv1.onclick = function(){
+         if( oUl1.style.display == "block"){
+         oUl1.style.display = "none";
+        
+          }     
+        else{
+              oUl1.style.display = "block";
+             
+          }
+        }
+          oDiv2.onclick = function(){
+         if( oUl2.style.display == "block"){
+         oUl2.style.display = "none";
+        
+          }     
+        else{
+              oUl2.style.display = "block";
+             
+          }
+        
+       
+          }
+        
+      
+     
+     
+     
+     </script>
+
+
+
+   
+</body>
+</html>
