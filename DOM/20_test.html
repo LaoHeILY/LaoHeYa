@@ -32,10 +32,10 @@
        
      <div id="div1">  管理区 </div>
       <ul id = "ul1">
-              <li>1111</li>
-              <li>2222222</li>
-              <li>33333333333</li>
-          </ul>
+      <li>1111</li>
+      <li>2222222</li>
+      <li>33333333333</li>
+      </ul>
        
      <div id="div2">交通区 </div>
          <ul id = "ul2">
@@ -53,26 +53,26 @@
 
       
         oDiv1.onclick = function(){
-         if( oUl1.style.display == "block"){
+         if( oUl1.style.display == "none"||oUl1.style.display==""){
+         oUl1.style.display = "block";
+         }     
+        else{
          oUl1.style.display = "none";
-        
-          }     
-        else{
-              oUl1.style.display = "block";
              
           }
+        // return oUl1.style.display =="block"?oUl1.style.display = "none":oUl1.style.display = "block";
         }
-          oDiv2.onclick = function(){
-         if( oUl2.style.display == "block"){
-         oUl2.style.display = "none";
+         oDiv2.onclick = function(){
+        //  if( oUl2.style.display == "block"){
+        //  oUl2.style.display = "none";
         
-          }     
-        else{
-              oUl2.style.display = "block";
+        //   }     
+        // else{
+        //       oUl2.style.display = "block";
              
-          }
+        //   }
+        return oUl2.style.display =="block"?oUl2.style.display = "none":oUl2.style.display = "block";
         
-       
           }
         
       

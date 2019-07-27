@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+        function Leaf() {
+            this.width = Math.random() * 50 + 100;
+            this.position = {
+                left: Math.random() * (screenWidth - this.width),
+                top: 0
+            }
+            this.speed = 5;
+            var oImage = new Image();
+            oImage.src = "image/" + (Math.floor(Math.random() * 4) + 1) + ".png";
+            oImage.style.width = this.width + "px";
+            oImage.style.left = this.position.left + "px";
+            oImage.style.top = this.position.top + "px";
+            this.image = oImage;
+        }
+        Leaf.prototype.init = function () {
+            document.body.appendChild(this.image);
+        }
+        Leaf.prototype.fall = function () {
+            var that = this;
+            setTimeout(function () {
+                this.timer = setInterval(function () {
+                    if (that.image.offsetTop >= screenHeight - that.image.offsetHeight) {
+                        clearInterval(that.timer);
+                    }
+                    else {
+                        that.image.style.top = that.image.offsetTop + that.speed + "px";
+                    }
+                }, 10);
+            }, Math.random() * 500);
+
+        }
+    
+        var arr = [];
+        for (var i = 0; i < 20; i++) {
+            var leaf = new Leaf();
+            arr.push(leaf);
+            leaf.init();
+        }
+        document.onclick = function () {
+            for (var j = 0; j < arr.length; j++) {
+                arr[j].fall();
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

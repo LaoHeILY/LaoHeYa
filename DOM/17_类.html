@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+           <!--类是具有相同属性和方法的对象集合  -->
+ <script>
+     //构造函数 类 new一个实例化对象 this就指向实例化对象
+ function Person(name,age,weight){
+         this.name = name;
+         this.age = age;
+         this.weight = weight;
+         this.eat = function(){
+             console.log("chichi..")
+         }
+
+ }
+ //构造函数下有一个 prototyp ——>原型对象
+//  把方法和属性写在原型对象下 可以被实例化对象共享
+Person.prototype.eat = function(){
+    console.log("chichi...");
+}
+ //实例化对象
+ var p1 = new Person('zs',18,98);
+ console.log(p1,name);
+ p1.eat();
+ 
+ 
+ </script>
+
+
+
+</body>
+</html>
