@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <div id="div1">
+       <h2>haha</h2>
+       <button id = "btn">click</button>
+   </div>
+
+
+    <script>
+//   var oDiv =  document.createElement('div');
+//   oDiv.innerHTML="haha";
+//   document.body.appendChild(oDiv)
+
+
+    var oDiv1 = document.getElementById("div1");
+    var oH2 = oDiv1.getElementsByTagName("h2")[0];
+    var Obtn = document.getElementById("btn")
+    Obtn.onclick = function(){
+        // oDiv1.removeChild(oH2);
+        // var oSpan = document.createElement('span');
+        // oSpan.innerHTML = "heheheh"
+    //    oDiv1.replaceChild(oSpan,oH2);
+      var x = oH2.cloneNode(true);
+
+    oDiv1.insertBefore(x,oH2)
+    }
+
+
+
+    </script>
+
+</body>
+</html>
