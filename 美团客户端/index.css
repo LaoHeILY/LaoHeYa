@@ -57,29 +57,102 @@ body{
     position: relative;
     
 }
-.my{
+.nav-right .icon-wode1{
+    font-size:0.5rem;
   
+}
+.icon-wode1{
     position: absolute;
-    top:-10px;
-    right:15px;
+    top:-5px;
+    right:10px;
     z-index:2;
     font-size:20px;
 }
 #nav-mine{
   position: absolute;
-  bottom:-10px;
-  right:10px;
-  font-size:12px;
+  bottom:-15px;
+  right:12px;
+  font-size:10px;
 }
 .img-header img{
     width:7.5rem;
     height: 2.2rem;
+    border-bottom:1px solid #ddd3ce;
 }
-.nav-iconfont-box a{
-    width: 200px;
-    height: 200px;
+.mune-box{
+    display:flex;
+    flex-wrap: wrap;
+    background: #fff;
+    
+    
+}
+.mune-box li{
+    width:20%;
+    list-style:none;
+    margin-bottom:20px;
+
+}
+.nav-image{
+    text-decoration: none;
+}
+.list-img{
+    width:0.8rem;
+    height:0.8rem;
+    background: orange;
     border-radius: 50%;
-    background: #ff0000;
-    z-index:1;
-    font-size:20px;
+    margin: 0 auto;
+    position: relative;
+    margin-top:5px;
+}
+.list-title{
+    text-align: center;
+    font-size: .24rem;
+    color: #666;
+    text-decoration: none;
+    
+    
+}
+.list-img .iconfont{
+    font-size: 0.5rem;
+    position: absolute;
+    top:0.15rem;
+    left:0.15rem;
+    color:#fff;
+}
+.pro-list-box{
+    background: #ffffff;
+    border-top:5px solid rgb(231, 218, 218) ;
+    padding-left:0.2rem;
+}
+.pro-list-box h2{
+    height: 0.84rem;
+    line-height: 0.84rem;
+    font-size: .34rem;
+    color: #333;
+    font-weight: normal;
+    border-bottom:1px solid #DDD8CE;
+}
+.pro-list{
+    padding:0.2rem 0;
+    display: flex;
+    border-bottom:1px solid #DDD8CE;
+}
+.pro-list-img{
+    width:1.8rem;
+    height: 1.8rem;
+    margin-right:0.2rem;
+}
+.pro-list-info{ 
+    flex:1;
+    color:#333;
+    
+    
+}
+.pro-header{
+   font-size:0.3rem;
+   padding-bottom:0.1rem;
+
+}
+.pro-least{
+    font-size:0.24rem;
 }
