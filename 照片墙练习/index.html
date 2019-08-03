@@ -26,18 +26,59 @@
         left:-135px;
         top:-135px;
         transition: all 2s ease;
+
     }
+    .box span{
+        position:absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url(imgs/1.jpg) 0 0 no-repeat;
+        opacity: 0;
+        
+       }
+    #next{
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        background:#eee;
+        right:0;
+        top:50%;
+        display:none;
+        border:1px solid black;
+
+
+    }
+    #prev{
+        
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        /* background: #ff0000; */
+        left:0;
+        top:50%;
+        display:none;
+
     
+    }
     
     </style>
 </head>
 <body>
     <div id="container">
-       
+       <div id="next">
+       <img src="imgs/next.png" alt="">
+       </div>
+       <div id="prev">
+           <img src="imgs/prev.png" alt="">
+       </div>
     </div>
     <script>
+       
         var count = 0;
         var oContainer = document.getElementById('container');
+        var now = 0;
         for(var i=0;i<24;i++){
         var oImg = new Image();
         oImg.onload = function(){
@@ -61,14 +102,19 @@
         }
         oImg.src="imgs/"+(i+1)+".jpg";
         }
+         var idx = 0;
         function loadSuccess(){
             for(var i = 0 ;i<4;i++){
               for(var j=0;j<6;j++){
              var oDiv = document.createElement("div");
-             oDiv.style.background = "url(imgs/thumbs/"+(i*6+j+1)+".jpg)" ;
+             oDiv.style.background = "url(imgs/thumbs/"+(idx+1)+".jpg)" ;
              oDiv.className = "box";  
              oDiv.row = i;//行
              oDiv.col = j;//列
+             oDiv.index =idx;
+             idx++;
+             oDiv.innerHTML= "<span></span>";
+             oDiv.onclick=fn;
              oContainer.appendChild(oDiv);      
               }  
             }
@@ -87,10 +133,75 @@
            //disX     2*disX+img     3*disX + 2*img      n*disX + (n-1)*img
 
             aBox[i].style.top = (aBox[i].row+1 )*disY +aBox[i].row * oBoxHeight+"px";
+            }
+            var bigDisX = (oContainer.offsetWidth - 6*127) /2;
+            var bigDisY = (oContainer.offsetHeight - 4*127) / 2;
+            var flag = true;
+            var oNext = document.getElementById("next");
+            var oPrev = document.getElementById("prev");
+            // oNext.onclick = fn;
+            function fn(){
+                if(flag){
+                for(var i=0;i<aBox.length;i++){ 
+                    aBox[i].style.transitionDelay="0ms";
+               
+               
+                    aBox[i].style.transform = "rotate(0deg)";
+                    aBox[i].style.left= aBox[i].col* 127+ bigDisX +"px";
+                    aBox[i].style.top= aBox[i].row * 127 + bigDisY +"px";
+                    aBox[i].style.borderWidth = "1px";
+                    var oSpan = aBox[i].getElementsByTagName("span")[0];
+                    oSpan.style.opacity = 1;
+                    var x = - aBox[i].col * 125 ;
+                    var y = - aBox[i].row * 125 ;
+                    oSpan.style.background = "url(imgs/" +(this.index + 1)+".jpg) "+x+"px "+y+"px no-repeat";
 
+                }
+                 oNext.style.display = "block";
+                 oPrev.style.display = "block";
+                  
+                    now = this.index;
+            } 
+             else{
+                for(var i=0; i<aBox.length; i++){
+                        aBox[i].style.left = (aBox[i].col + 1) * disX + aBox[i].col * oBoxWidth + "px";
+                        var row = aBox[i].row;
+                        aBox[i].style.top = (row + 1) * disY + row * oBoxHeight + "px";
+                        aBox[i].style.transform = "rotate(" + (Math.random() * 40 - 20) + "deg)";
+                        var oSpan = aBox[i].getElementsByTagName('span')[0];
+                        oSpan.style.opacity = 0;
+                    }
+                    
+                    oNext.style.display = "none";
+                    oPrev.style.display = "none";
+            } 
+            flag = !flag;
+                }
+                var aSpan = oContainer.getElementsByTagName("span");
+            oNext.onclick = function(){
+               now++;
+               if(now == 24){
+                   now = 0;
+               }
+               for(var i=0; i<aSpan.length; i++){
+                    aSpan[i].style.transitionDelay = Math.random()*500+"ms";
+                    aSpan[i].style.backgroundImage = "url(imgs/"+(now+1)+".jpg)";
+                }
+            }
+            oPrev.onclick = function(){
+                now--;
+                if(now==-1){
+                    now=23;
+                }
+                for(var i=0; i<aSpan.length; i++){
+                    aSpan[i].style.transitionDelay = Math.random()*500+"ms";
+                    aSpan[i].style.backgroundImage = "url(imgs/"+(now+1)+".jpg)";
+                }
+            }     
+          
         }
 
-        }
+        
          
 
 
