@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    .aa{
+        width: 200px;
+        height: 200px;
+        background: red;
+    }
+    
+    </style>
 </head>
 <body>
     <div id="div1" class="aa"></div>
@@ -21,7 +29,11 @@
     
    $('.bb').attr('name','cc');//给某个元素加一个属性
    $('.bb').removeAttr('name');//给加过的属性删除
-    
+$('li').addClass('bb');
+$('li').removeClass('bb');//清除所有class为bb的。即使不是后添加的。
+$('li').eq(0).toggleClass('cc').siblings().addClass('dd');
+$('.aa').height(500);//传参就改变了高度
+ console.log($('.aa').width())//不传参就输出原本的高度 
     
     </script>
 </body>
