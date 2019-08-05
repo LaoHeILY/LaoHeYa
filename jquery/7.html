@@ -18,8 +18,16 @@
     $('.hello').on('click', function(){
        console.log("hahaha");
     })
-    // $('.hello').clone(true).appendTo('.goodbye');
-    $('.goodbye').append( $('.hello').clone(true));
+    // $('.hello').clone(true).appendTo('.goodbye');//appendTo是加到末尾
+    // $('.goodbye').append( $('.hello').clone(true));
+    // $('.hello').prependTo('.goodbye')//prependTo加到首
+    // $('.goodbye').prepend('<p>hh</p>')
+    // $('.hello').after('world');//直接加在后边
+
+    $('.hello').before('hhhaha');//直接加在前边
+
+    
+    
     
     
     
