@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- let与var的区别
+       1.let 没有变量提升   
+       2.let 不可以重复声明
+       3.let 块级作用域 只在{}里有效 在{}外访问不到被let的定义
+       4.let 暂时性死去或临时失效区  当前作用域不允许同名的变量 -->
+   
+    <script>
+    //1.变量提升（当前作用域的上边定义了一个变量，没有赋值
+    //console.log(a);
+    //var a = 10;
+
+//    console.log(b);
+//    let b=10;
+
+
+
+    //   var a = 10;
+    //   var a = 20;
+    //   console.log(a);
+    //   let a = 10;
+    //   let a = 20;
+    //   console.log(a);
+
+
+        // var  m = 5;
+        // if(m){
+        //    var  n = 100;
+        // }
+        // console.log(n);
+
+        //块级作用域
+        // let m=5;
+        // if(m){
+        //     let n = 100;
+        // }
+        // console.log(n);
+        // var x = 10;
+        // function a(){
+        //      console.log(x);
+        //      var x = 20;
+        // }
+        // a();     //输出undefined 因为var定义的变量有变量提升  
+        //相当于function a(){
+        //     var x;
+        //     console.log(x);
+        //     var x = 20;
+        // }
+        var x = 10;
+        function a(){
+             console.log(x);
+             let x = 20; //临时失效区
+            //  console.log(x);
+            
+        }
+        a();   
+
+
+    
+    
+    </script>
+</body>
+</html>
