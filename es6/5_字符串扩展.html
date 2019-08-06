@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var index = 0;
+    var url = "url(image/"+(index+1)+".jpg)";
+
+  
+    let url2 = `url(image/${index+1}.jpg)`;
+    console.log(url)
+    console.log(url2)
+    
+    // $('#div1').css('background','url')
+    let a = 3;
+    let b = 4;
+    console.log(a+"+"+b+'的结果是'+(a+b));
+    
+    console.log(`${a}+${b}的结果是${a+b}`);
+  
+  let str = "adcdefj";
+//   console.log(str.indexOf('f'));//返回索引
+  console.log(str.includes('f')) //返回true/false
+
+  let str2 = "fedf12"
+  console.log(str2.startsWith('23'))//以什么开始
+  console.log(str2.endsWith('12'))//以什么结束
+
+
+  console.log(str2.padStart(7,'df'))
+  console.log(str2.repeat(2))
+
+
+  console.log(Number.isFinite('abs'))//判断是不是数字
+
+  console.log(Number.isNaN(NaN))
+
+
+    </script>
+</body>
+</html>

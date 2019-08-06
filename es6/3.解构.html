@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // let arr = [1,2];
+    // var a = arr[0];
+    // var b = arr[1];
+    // console.log(a,b);
+
+    //   let arr1 = [1,2,[3,4],5];
+    //   let [a,b,[e,f],g] = arr1;
+    //   console.log(a,b,e,f,g);
+
+    //  function fn([a,b,c=5]){
+    //    console.log(a,b,c)
+    //  }
+    //  fn([1,2])
+
+
+    // let obj = {
+    //     name:'zs',
+    //     age:18
+    // }
+    // let {x,y} = obj;
+    // console.log(x,y);//undefined undefined
+
+    // let {name,age} = obj;
+    // console.log(name,age);//zs,18
+    // //如果不想变量名和属性名相同可以：
+    // let {name:n,age:a} = obj;
+    // console.log(n,a)
+
+
+
+    let a = 5;
+    let b = 6;
+    //变量互换
+    
+    //1
+    // let c = a;
+    // a = b;
+    // b = c;
+    // console.log(a,b)
+
+    //2
+    // [a,b] = [b,a];
+    // console.log(a,b)
+
+    //3
+    // a = a + b;
+    // b = a - b;
+    // a = a - b;
+    // console.log(a,b)
+
+    //4
+    a = [b,b=a][0];
+    console.log(a,b)
+
+    
+   
+
+
+
+
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--    const 与let 相同4条
+    const的特性：
+     1.定义常量 不能修改
+     2.定义引用变量 ，地址不能改 但是地址存的东西可以改；
+     3.Object.freeze(),使地址存储的内容也不能更改
+
+
+
+
+ -->
+
+
+    <script>
+    // const a = 10;
+    // a = 20;
+
+
+    // const arr =[1,2,3,4];
+    // arr[0] = 666;
+    // console.log(arr);
+
+    const obj = {
+        name : 'zs'
+    }
+    Object.freeze(obj)//冻结地址的内容 使地址存储的内容也不能更改
+
+    obj.name = 'Lisa';
+    console.log(obj);
+    
+    
+    
+    </script>
+</body>
+</html>
