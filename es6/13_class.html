@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class  Person{
+            constructor(name,age){
+            this.name = name;
+            this.age = age;
+            }
+           say(){
+               console.log('hhh')
+           }
+           //static静态方法 不可以被Coder继承  不需要实例化类 调用方法：类名.方法()
+           static xx(){
+               console.log('lilili')
+           }
+        }
+         let p1 = new Person('zs',18);
+
+         console.log(p1);
+         p1.say();
+         //Coder继承Person
+
+         class Coder extends Person{
+             constructor(name,age,num){
+                 super(name,age);//super()继承父类
+                 this.littleHair = num;//添加自己的属性；
+             }
+        
+         //给Coder添加自己的方法
+         coding(){
+             console.log('Hello World!')
+         }
+
+ }
+        let c1 = new Coder('lili',28,10);
+        console.log(c1);
+        c1.coding();
+        c1.say();
+        // c1.lili();//不能被调用
+        Person.xx();
+
+        
+        
+        
+        </script>
+</body>
+</html>

@@ -28,8 +28,8 @@
 
 //找出第一个符合条件的成员
     // var arr3 = [1,2,3,4,5];
-    // var x = arr3.find(function(val,key,arr){
-    //     // console.log(val,key,arr)
+    // var x = arr3.find(function(val,index,arr){
+    //     // console.log(val,index,arr)
     //     return val > 1;
 
     // })
@@ -58,7 +58,35 @@
         return obj.age == 18;
     })
     console.log(arr5);
+    
+    var arr6 = [1,2,3,4,5]
+    var arr7 = arr6.map(function(val,key){  //映射数组 返回新数组
+        return val*3;
+    })
+    console.log(arr7);
 
+
+//循环数组
+    arr6.forEach(function(val,index){
+        console.log(val,index)
+    })
+//判断数组是否含有元素1
+    console.log(arr6.includes(1))
+
+    var arr8 = ['a','b','c','d','e'];
+    for(val of arr8){
+        console.log(val);
+    }
+
+
+for(index of arr8.keys()){
+    console.log(index)
+}
+
+
+for([val,index] of arr8.entries()){
+    console.log(val,index)
+}
 
     
     

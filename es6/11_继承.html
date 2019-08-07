@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Person(name,age){
+        this.name = name,
+        this.age = age
+    }
+    Person.prototype.say = function(){//原型对象的prototype是给一个人加特定的方法，
+          console.log(this.name+"的年龄是"+this.age)//this指向p1的name，
+    }
+    var p1 = new Person('xx',18);
+    p1.say();
+
+
+
+    function Coder(name,age){//定义一个新程序员类 但要包含Person类的属性
+       Person.call(this,name,age)//call 改变this的指向 
+    }
+
+    Coder.prototype = new Person();
+    //Coder的原型对象下，本来有constructor指向Coder的构造函数，手动给Coder的原型对象加一个constructor
+    Coder.prototype.constructor = Coder;
+
+    var c1 = new Coder('zs',18)
+    var c2 = new Coder('zhaosi',20)
+     c2.say()
+    console.log(c1,c2)
+    
+    </script>
+</body>
+</html>
