@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script src="../jquery/jquery-1.12.4.js"></script> -->
+    <script>
+        // $.get("test.json",true)
+        // setTimeout(function(){
+        //  console.log('hahah')
+        // },1000);
+        //回调地狱
+        // var id;
+        // $.get('url1',function(data){
+        //     id = data.id;
+        //     $.get('url2?id='+id,function(){
+
+        //     })
+
+        // });
+         new Promise(function(resolve,reject){
+            $.get('url1',function(data){
+                if(data){
+                     resolve(data.id) 
+                }
+                else{
+                    reject();
+                }
+              
+            });
+        }).then(function(){
+            $.get('url2',function(data){
+
+        })
+         }).catch(function(){
+             console.log('shibai')
+         })
+
+
+
+
+
+        
+        </script>
+</body>
+</html>

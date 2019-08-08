@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        new Promise(function(resolve,reject){
+            setTimeout(() => {
+                var data= 0;
+                if(data){
+                    resolve();
+                }
+                else{
+                    reject();
+                }
+
+            },1000);
+        }).then(function(){//成功
+            console.log('ok')
+        }).catch(function(){//失败
+            console.log('shibai')
+        })
+        
+        </script>
+</body>
+</html>
