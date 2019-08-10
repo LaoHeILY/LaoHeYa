@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+    .red{
+        color:red;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <input  type="text" v-model = "name" @keyup = filterFn()>
+       <button @click=add() value="add">add </button>
+       <ul>
+           <li v-for="(obj,index) in list" @click=change(obj) :class='{red:obj.isRed}' v-show = "obj.isShow">
+               {{obj.name}}
+               <button @click.stop = 'del(index)'>del</button>
+           </li>
+       </ul>
+    </div>
+    <script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+           list:[
+               {
+               name:"aa",
+               isRed:false,
+               isShow:true
+           },{
+               name:"bbb",
+               isRed:false,
+               isShow:true
+           }],
+           name:'',
+        //    isRed:false
+        },methods:{
+           add(){
+               //获取input里的value
+               this.list.push({name:this.name,isRed:false,isShow:true})
+               //添加后将input制空
+               this.name = '';
+               this.filterFn()
+            },
+            change(obj){
+               obj.isRed = !obj.isRed
+            },
+            del(index){
+                this.list.splice(index,1);
+            },
+            filterFn(){
+               let value = this.name
+               this.list.forEach(function(obj,index){
+                  if(obj.name.includes(value)){
+                           obj.isShow = true
+                  }else{
+                      obj.isShow = false
+                  }
+                   
+
+               })
+            }
+        } 
+    })
+    
+    </script>
+</body>
+</html>
