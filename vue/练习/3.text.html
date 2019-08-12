@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div>
+            是否需要额外付费项目
+            <input type="checkbox" v-model="show" @click = 'fn()'>
+            <ul v-show="show">
+                <li v-for = "facility in facList"  >
+                 {{facility.facName}} {{facility.facPrice}}   
+                 <input type="checkbox" :value = "facility" v-model = "orderList">
+                </li>   
+            </ul>
+        </div>
+        <div>
+            订单费用信息
+            <ul>
+                <li v-for ="obj in orderList"  >
+                   {{obj.facName}} {{obj.facPrice}}
+                </li>
+            </ul>
+
+        </div>
+        <span>总金额：</span>
+        <span>400</span>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#container",
+            data: {
+                facList: [
+                    {
+                        facName: "沙发",
+                        facPrice:100
+                    }, 
+                    {
+                        facName: "wifi",
+                        facPrice:50
+                    },
+                    {
+                        facName: "电脑",
+                        facPrice:200
+                    }],
+                    orderList:[
+                    {
+                        facName:" 群力花园豪华型",
+                        facPrice:400
+                    }
+                    ],
+                    show:false,
+                   
+
+            },
+            methods:{
+                total(){
+                    let sun = 0;
+                    this.orderList.forEach(function(obj,index){
+                        sum +=obj.price;
+                    })
+                    return sum;
+                },
+                fn(){
+
+                }
+            }
+           
+        })
+
+    </script>
+
+</body>
+
+</html>
