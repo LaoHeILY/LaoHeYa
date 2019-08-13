@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+    .aa{
+        background: orangered;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <my-component title = "111">
+            <p slot = "p">111的内容是1</p>
+            <h5 slot = "h">111的内容是2</h5>
+
+        </my-component>
+
+        <my-component title = "222">
+                <p slot = "p">222的内容是1</p>
+                <h5 slot = "h">222的内容是2</h5>
+        </my-component>
+        <h2>fsgfgf</h2>
+
+    </div>
+    <template id="temp">
+        <div>
+            <h2 class = "aa">{{title}}</h2>
+            <p>{{count}}</p>
+            <div>
+                <slot name = "p"></slot>
+            </div>
+            <button @click = "add()">add</button>
+            <slot name = "h"></slot>
+        </div>
+    </template>
+
+
+    <script>
+        //方法2
+        new Vue({
+            el: "#app",
+            data: {
+
+            },
+            components: {
+                "myComponent": {
+                    template: "#temp",
+                    props:["title"],
+                    data(){
+                        return{
+                            count: 0
+                        }
+                    },
+                    methods:{
+                        add(){
+                            this.count++;
+                        }
+                    }
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

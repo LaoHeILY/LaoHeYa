@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .dislog{
+        width: 500px;
+        height: 700px;
+        border:1px solid #000000;
+    }
+    .dislog-close{
+        float:right
+    }
+
+    </style>
+</head>
+<body>
+    <div id = "app">
+        <button>登陆</button>
+        <button>注册</button>
+
+        <div class = "dislog">
+            
+
+            <div class="dislog-content"></div>
+
+        </div>
+    </div>
+    <template id = "temp">
+            <div class="dislog-title">
+                    <span>登陆</span> 
+                     <span class = "dislog-close"> [X] </span>
+                 </div>
+    </template>
+
+    <script>
+     let vm = new Vue({
+         el:"#app",
+         components:{
+             "myDislog":{
+                 template
+             }
+
+         }
+
+     })
+    
+    </script>
+    
+</body>
+</html>

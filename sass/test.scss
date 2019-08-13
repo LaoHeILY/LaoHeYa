@@ -1,0 +1,14 @@
+$color:orange;
+$color:red !default;
+$attr:width;
+$url:'1.jpg';
+
+body {
+    background:$color;
+    color:green;
+    width: 800px;
+    height: 300px;
+    div{
+        color:$color;
+    }
+}

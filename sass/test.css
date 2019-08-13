@@ -1,0 +1,10 @@
+body {
+  background: orange;
+  color: green;
+  width: 800px;
+  height: 300px;
+}
+
+body div {
+  color: orange;
+}
