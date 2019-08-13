@@ -61,17 +61,27 @@
 
             },
             methods:{
-                total(){
-                    let sun = 0;
-                    this.orderList.forEach(function(obj,index){
-                        sum +=obj.price;
-                    })
-                    return sum;
-                },
+                // total(){
+                //     let sum = 0;
+                //     this.orderList.forEach(function(obj,index){
+                //         sum +=obj.price;
+                //     })
+                //     return sum;
+                // },
                 fn(){
-
+                    this.orderList.splice(1);
                 }
+            },
+            computed:{
+            //     total(){
+            //         let sum = 0;
+            //         this.orderList.forEach(function(obj,index){
+            //             sum +=obj.price;
+            //         });
+            //         return sum;
+            //     }
             }
+            
            
         })
 
