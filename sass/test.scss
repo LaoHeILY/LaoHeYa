@@ -1,14 +1,30 @@
+@import 'common';
+@charset 'utf-8';
 $color:orange;
 $color:red !default;
 $attr:width;
 $url:'1.jpg';
 
 body {
-    background:$color;
+    // background:$color;
     color:green;
     width: 800px;
     height: 300px;
-    div{
-        color:$color;
-    }
+    background: $color url(#{$url}) 0 0 no-repeat;
+   #app{
+       color:pink
+   }
+   h2{
+       width: 800px;
+   }
+   p{
+       height: 300px;
+       padding: {
+           top: 20px;
+           bottom: 20px;
+       }
+       &:hover{
+        color:blue
+       }
+   }
 }
