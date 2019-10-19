@@ -3,6 +3,7 @@
         <aplayer autoplay
             :music="musicData[0]"
             :list="musicData"
+            :showLrc='true'
             v-if="show"
 />
     </div>
