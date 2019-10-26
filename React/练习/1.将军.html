@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="../react.development.js"></script>
+    <script src="../react-dom.development.js"></script>
+    <script src="../browser.min.js"></script>
+    
+    <script type="text/babel">
+    class Main extends React.Component{
+        constructor(){
+            super();
+            this.state={
+                num1:100,
+                num2:50,
+                num3:70
+            }
+           
+            this.changeNum2 = this.changeNum2.bind(this);
+            this.changeNum3 = this.changeNum3.bind(this);
+        } 
+       
+        changeNum2(number2){
+            this.setState({
+                num1:this.state.num1-number2,
+                num2:this.state.num2+number2*1
+            })
+        }
+        changeNum3(number3){
+            this.setState({
+                num1:this.state.num1-number3,
+                num3:this.state.num3+number3*1
+            })
+        }
+        render(){
+            return(
+                <div>   
+                <h3>剩余士兵数量 {this.state.num1}  </h3>  
+                <Children num2 = {this.state.num2} changeNum2={this.changeNum2} num3 = {this.state.num3}
+                 changeNum3={this.changeNum3}
+                > </Children> 
+                
+               
+                </div>
+            )
+    }
+}
+    class Children extends React.Component{ 
+        render(){
+            return(
+                <div>
+                    <p>将军A有士兵{this.props.num2} </p>
+                    <input type="number" ref="num2"/>
+                    <button onClick={
+                        ()=>{
+                            console.log(this.refs.num2.value);
+                            this.props.changeNum2(this.refs.num2.value)
+
+                        }
+                    }
+                    >调兵</button>
+                    <p>将军B有士兵{this.props.num3} </p>
+                    <input type="number" ref="num3"/>
+                    <button onClick={
+                        ()=>{
+                            console.log(this.refs.num3.value)
+                            this.props.changeNum3(this.refs.num3.value)
+                        }
+                    }
+                    >调兵</button>
+                    </div>
+            )
+        }
+    }
+
+
+    ReactDOM.render(
+        <Main></Main>,
+        document.getElementById("root")
+    )
+
+
+
+    </script>
+</body>
+</html>

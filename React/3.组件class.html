@@ -8,12 +8,18 @@
 </head>
 <body>
         <div id="root"></div>
+        
 
         <script src="react.development.js"></script>
         <script src="react-dom.development.js"></script>
         <script src="browser.min.js"></script><!-- es6转化为es5 -->
     
         <script type="text/babel">
+         //有状态组件
+         //用 {this.props.children}来输出标签闭合里得内容
+         //props父到子传值
+         //state 修改
+         //ref 取到该元素
           class Welcome extends React.Component{
 
          

@@ -1,75 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>贪吃蛇</title>
     <style>
-    *{
+        *{
             margin: 0;
             padding: 0;
-    }
-    .container{
-        width: 1038px;
-        height: 650px;
-        background: url(img/bg-img.jpg) no-repeat;
-        background-size: 100% 100%;
-        position: relative;
+        }
 
-    }
-    .map-panel{
-        width: 631px;
-        height: 421px;
-        position:absolute;
-        border:1px solid #000000;
-        left:90px;
-        top:140px;
-    }
-    .control-panel{
-        position: absolute;
-        top:140px;
-        right:20px;
+        #container{
+            width: 1038px;
+            height: 650px;
+            background: url(./img/bg.jpg);
+            margin: 0 auto;
+            position: relative;
+        }
 
-    }
-    .control-panel button{
-        width: 125px;
-        height: 25px;
-        float:left;
-       
-    }
-    #btn-start{
-        top:50px;
-       
-    }
-    #btn-setting{
-        top:100px;
-    }
-    #btn-quit{
-        top:150px;
-    }
-    #btn-help{
-        top:200px;
-    }
+        #map-panel{
+            width: 631px;
+            height: 421px;
+            position: absolute;
+            left: 90px;
+            top: 140px;
+          
+        }
+        #map-bg{
+            border-collapse:collapse;
+        }
+        #map-bg td{
+            width: 20px;
+            height: 20px;
+            border:1px solid #888;    
+        }
+
+        .snack{
+            width: 20px;
+            height: 20px;
+            background: rgb(0, 255, 255);
+            position:absolute;
+            top:63.4px;
+        }
+
+        .food{
+            width: 20px;
+            height: 20px;
+            background: rgb(255, 255, 0)
+        }
+
+        #control-panel{
+            width: 196px;
+            height: 500px;
+            position: absolute;
+            left: 800px;
+            top: 100px;
+            text-align: center;
+        }
+
+        #control-panel button{
+            width: 178px;
+            height: 52px;
+            margin-bottom: 20px;
+            border: 0;
+        }
+
+        #start-panel{
+            background: url("./img/start-game.png");
+        }
+
+        #setting-panel{
+            background: url("./img/game-setting.png");
+        }
+
+        #help-panel{
+            background: url("./img/help.png");
+        }
+
+        #quit-panel{
+            background: url("./img/quit-game.png");
+        }
+
+        #speed-panel{
+            width: 196px;
+            height: 204px;
+            background: url("./img/speed-panel.png");
+        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-
-        <div class="map-panel">
-            <img src="" alt="">
+    <div id="container">
+        <div id="map-panel">
+            <table id="map-bg"></table>
         </div>
+        <div id="control-panel">
+            <button id="start-panel">
 
-        <div class="control-panel">
-            <button id="btn-start">开始游戏</button>
-            <button id="btn-setting">游戏设置</button>
-            <button id="btn-quit">退出游戏</button>
-            <button id="btn-help">帮助</button>
-            <div id="speed-panel"> 速度控制</div>
+            </button>
+            <button id="setting-panel">
+
+            </button>
+            <button id="help-panel">
+
+            </button>
+            <button id="quit-panel">
+
+            </button>
+            <div id="speed-panel">
+
+            </div>
         </div>
-      
+  </div>
 
-    </div>
-    
+    <script>
+        var oMapTable = document.getElementById('map-bg');
+        var oMapPanel = document.getElementById('map-panel');
+        
+        for(var row=0;row<20;row++){
+            var oTr = document.createElement("tr");
+            for(var col=0;col<30;col++){
+                var oTd = document.createElement("td");
+                oTr.appendChild(oTd);
+            }
+            oMapTable.appendChild(oTr);
+        }
+        var snackBody = [];
+        for(var i=0;i<3;i++){
+            var oDiv = document.createElement('div');
+            
+            oDiv.className="snack";
+            oDiv.style.left = i * 20 +(i+1) + 'px';
+        
+         oMapPanel.appendChild(oDiv);
+         snackBody.push(oDiv);
+         
+}
+
+  
+    </script>
+
+
+
 </body>
+
 </html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .red{
+        background: #ff0000;
+    }
+    .show{
+        display: block;
+    }
+    .hidden{
+        display: none; 
+    }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="../react.development.js"></script>
+    <script src="../react-dom.development.js"></script>
+    <script src="../browser.min.js"></script>
+    <script type="text/babel">
+    class Main extends React.Component{
+        constructor(){
+            super();
+            this.state={
+                list:[
+                    {
+                        show:true, //标识显示隐藏
+                        id:1,
+                        name:"吃饭",
+                        active:false
+                    },
+                    {
+                        show:true,
+                        id:2,
+                        name:"睡觉",
+                        active:false
+                    }, 
+                    {
+                        show:true,
+                        id:3,
+                        name:"敲代码",
+                        active:false
+                    }
+                ],
+                id:4
+            }
+            this.addList=this.addList.bind(this);
+            this.changeActive=this.changeActive.bind(this);
+            this.Delete=this.Delete.bind(this);
+            this.search=this.search.bind(this);
+        }
+        addList(val){
+            let arr =this.state.list;
+
+            arr.push({
+                show:true,
+                id:this.state.id++,
+                name:val,
+                active:false
+            })
+            this.setState({
+                list:arr,
+            })
+        }
+        changeActive(index){
+            let arr=[...this.state.list];
+            arr[index].active=!arr[index].active;
+            this.setState({
+                list:arr
+            })
+
+            
+        }
+        Delete(index){
+            let arr = this.state.list;
+            arr.splice(index,1)
+       
+            this.setState({
+                list:arr
+            })
+        }
+        search(val){
+            let arr = [...this.state.list];
+            arr.forEach((obj)=>{
+                if(obj.name.includes(val)){
+                    obj.show=true
+                }
+                else{
+                    obj.show=false
+                }
+            })
+            this.setState({
+                list:arr
+            })
+        }
+        render(){
+            return(
+                <div>
+                    <h3>todoList</h3>
+                    <Search search={this.search}> </Search>
+                    <Add addList={this.addList}></Add>
+                    <ShowList list={this.state.list} changeActive={this.changeActive} Delete={this.Delete}></ShowList>
+                    
+                    </div>
+            )
+        }
+    }
+    class Search extends React.Component{
+        render(){
+            return(
+                <div>
+                    <p>搜索:</p>
+                    <input type="text" ref={input=>this.myInput = input}/>
+                    <button onClick={
+                        ()=>{
+                            this.props.search(this.myInput.value)
+                        }
+                    }>搜索</button>
+                </div>
+            )
+        }
+    }
+    class Add extends React.Component{
+        render(){
+            return(
+                <div>
+                    <p>添加:</p>
+                    <input type="text"ref={input=>this.myInput=input} />
+                    <button onClick={
+                        ()=>{
+                            this.props.addList(this.myInput.value) 
+                        }
+                    }>添加</button>
+                </div>
+            )
+        }
+    }
+    class ShowList extends React.Component{
+        render(){
+            return(
+                <div>
+                   <ul>
+                   {
+                       this.props.list.map((obj,index)=>{
+                           let a = obj.active?"red":" ";
+                           let b = obj.show?"show":"hidden";
+                           let cName = a+""+b
+                           return(
+                           <li key={obj.id} className={cName}>
+                            <input type="checkbox" onClick={
+                                ()=>{
+                                    this.props.changeActive(index)
+                                }
+                            }
+                                    />
+                            <span>{obj.name}</span>
+                            <button onClick={
+                                ()=>{
+                                    this.props.Delete(index)
+                                }
+                            }>删除</button>
+                            </li>
+                        )
+                            
+                       })
+                   }
+                    
+                    </ul>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Main></Main>,
+        document.getElementById("root")
+    )
+    
+    </script>
+</body>
+</html>
