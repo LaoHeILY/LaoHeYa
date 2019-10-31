@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+     class Main extends React.Component{
+         constructor(){
+             super();
+             this.state={
+                 msg:"hahha"
+             }
+             console.log("main constructor");
+             
+         }
+         ComponentWillMount(){
+             console.log("main ComponenntWillMount")
+         }
+         ComponentDidMount(){
+             console.log("main componentDidMount");
+             
+         }
+         render(){
+             console.log("main render")
+             return(
+                 <div>
+                 <h2>哈哈</h2>
+                 <button onClick={
+                     ()=>{
+                         this.setState({
+                             msg:"hehehehh"
+                         })
+                     }
+                 }>change</button>
+                 < Children title={this.state.msg}></Children>
+                </div>
+             )
+
+         }
+     }
+     class Children extends React.Component{
+        constructor(){
+            super();
+            this.state={
+                val:111,
+                timer:null
+            }
+            console.log("children constructor");  
+        }
+        ComponentWillMount(){
+            console.log("children componentWillMount")
+        }
+        ComponentDidMount(){
+            console.log("children componentDidMount"); 
+        }
+        ComponentReceiveProps(){
+            console.log("children componentReceiveProps")
+        }
+        ShouldComponentUpdate(nextProps,nextState){
+            console.log("children ShouldComponentUpdate");
+            
+        }
+        ComponentWillUpdate(){
+            console.log("children ConponentWillUpdate")
+        }
+        ComponentDidUpdate(){
+            console.log("children ComponentDidUpdate");
+            
+        }
+         render(){
+             console.log("children render")
+             return(
+                 <div>
+                    我是children {this.props.title}
+                   <h1>{this.state.val}</h1> 
+                   <button onClick={
+                       ()=>{
+                           this.setState({
+                               val:222
+                           })
+                       }
+                   }>更改</button>
+                </div>
+             )
+         }
+     }
+
+
+
+     ReactDOM.render(
+         <Main></Main>,
+         document.getElementById("root")
+     )
+    
+    
+    
+    
+    </script>
+</body>
+</html>

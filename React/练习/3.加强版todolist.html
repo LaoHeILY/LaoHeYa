@@ -72,14 +72,11 @@
             arr[index].active=!arr[index].active;
             this.setState({
                 list:arr
-            })
-
-            
+            })      
         }
         Delete(index){
             let arr = this.state.list;
             arr.splice(index,1)
-       
             this.setState({
                 list:arr
             })

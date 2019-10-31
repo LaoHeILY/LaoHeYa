@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .red{
+        color:red;
+        background: #000000;
+    }
+    .blue{
+        color:blue;
+        background: yellow;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="browser.min.js"></script>
+    <script type="text/babel">
+       class Main extends React.Component{
+           constructor(){
+               super();
+               this.state={
+                   val:"111",
+                   flag:true
+               }
+               this.change = this.change.bind(this)
+           }
+           change(e){
+               this.setState({
+                   val:e.target.value
+               })
+           }
+           render(){
+            
+               return(
+                   <div>
+                    <h1 style={{this.state.flag}?"red":"blue"}>{this.state.val}</h1>
+                    <input type="text" onChange={this.change}/>
+                    </div>
+               )
+           }
+       }
+
+        ReactDOM.render(
+            <Main></Main>,
+            document.getElementById("root")
+        )
+
+
+    </script>
+</body>
+</html>
